@@ -196,7 +196,8 @@ CREATE TABLE users (
     password_digest character varying,
     api_token character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    avatar_id character varying
 );
 
 
@@ -358,6 +359,6 @@ CREATE INDEX fk_mentions ON mentions USING btree (mentioner_id, mentioner_type);
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161103185803'), ('20161103192158'), ('20161103192159'), ('20161103192200'), ('20161104160818');
+INSERT INTO schema_migrations (version) VALUES ('20161103185803'), ('20161103192158'), ('20161103192159'), ('20161103192200'), ('20161104160818'), ('20161104204743');
 
 
