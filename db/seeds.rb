@@ -11,7 +11,6 @@
     username: Faker::Superhero.name,
     email:Faker::Internet.free_email,
     password: "123"
-    avatar_id
   )
 end
 50.times do

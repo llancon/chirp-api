@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :require_user, only: [:show, :login, :follow_user, :unfollow_user]
+
   def index
     @user = User.all.order("created_at DESC")
   end
@@ -24,23 +26,22 @@ class UsersController < ApplicationController
 
   def follow_user
     current_user.follow!(User.find(params[:id]))
-    render json: current_user
+    render json: @user
   end
 
   def unfollow_user
     current_user.unfollow!(User.find(params[:id]))
-    render json: current_user
+    render json: @user
   end
 
   def all_followers
     @followers = User.find(params[:id]).followers(User)
     render json: @followers
   end
-
   private
 
   def user_params
-    params.permit(:email, :password, :username, :api_token)
+    params.permit(:email, :password, :username, :api_token, :id)
   end
 
 end
