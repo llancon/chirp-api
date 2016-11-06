@@ -8,8 +8,8 @@
 
 50.times do
   users = User.create!(
-    username: FFaker::Superhero.name,
-    email:FFaker::Internet.free_email,
+    username: FFaker::Name.name,
+    email:FFaker::Internet.email,
     password: "123"
   )
 end
