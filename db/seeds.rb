@@ -8,8 +8,8 @@
 
 50.times do
   users = User.create!(
-    username: Faker::Superhero.name,
-    email:Faker::Internet.free_email,
+    username: FFaker::Superhero.name,
+    email:FFaker::Internet.free_email,
     password: "123"
   )
 end
