@@ -15,7 +15,7 @@
 end
 50.times do
   post = Post.create!(
-  body: FFaker::CheesyLingo.sentence,
+  body: FFaker::LoremFR.phrase,
   user_id: (1..50).to_a.sample
   )
 end

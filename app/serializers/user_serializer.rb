@@ -4,15 +4,8 @@ class UserSerializer < ActiveModel::Serializer
   has_many :posts
 
   def avatar
-    Refile.attachment_url(object, :avatar, :fit, 100, 100, format: "jpg")
+    Refile.attachment_url(object, :avatar_id, :fit, 100, 100, format: "jpg")
   end
 
 
-
-  # def username
-  #   object.username
-  # end
-  #
-  # has_many :posts
-  # has_many :comments
 end
