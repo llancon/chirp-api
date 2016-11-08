@@ -3,8 +3,15 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:show, :login, :follow_user, :unfollow_user]
 
   def index
-    @user = User.all.order("created_at DESC")
+    if current_user
+      @users = Post.timeline(current_user)
+    else
+      @users = User.all.order("created_at DESC")
+    end
+    render json: @users
   end
+
+
 
   def create
     @user = User.new(user_params)

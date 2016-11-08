@@ -3,8 +3,17 @@ class UserSerializer < ActiveModel::Serializer
   has_many :followers
   has_many :posts
 
+
   def avatar
-    Refile.attachment_url(object, :avatar_id, :fit, 100, 100, format: "jpg")
+    if avatar_id == null
+      'https://robohash.org/' + "#{object.username}"
+    else
+      Refile.attachment_url(object, :avatar, :fit, 50, 50, format: "jpg")
+    end
+  end
+
+  def followers
+    object.followers(User)
   end
 
 

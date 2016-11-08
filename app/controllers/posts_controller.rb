@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     if current_user
-      @posts = @post.timeline(current_user)
+      @posts = Post.timeline(current_user)
     else
       @posts = Post.all
     end

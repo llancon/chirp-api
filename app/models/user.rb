@@ -6,4 +6,7 @@ class User < ApplicationRecord
   acts_as_followable
 
   validates :email, presence: true, uniqueness: true
+
+  
+
 end

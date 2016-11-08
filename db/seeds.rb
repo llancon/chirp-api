@@ -11,7 +11,6 @@
     username: FFaker::Name.name,
     email:FFaker::Internet.email,
     password: "123",
-    avatar_id: " "
   )
 end
 50.times do
