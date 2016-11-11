@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
       if @user
-        render json: @user ["Success!"]
+        render json: @user 
       else
         render json: ["Wrong password bro"], status: :unauthorized
       end
