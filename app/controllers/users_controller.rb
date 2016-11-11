@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :require_user, only: [:show, :login, :follow_user, :unfollow_user]
+  before_action :require_user, only: [:show, :follow_user, :unfollow_user]
 
   def index
     if current_user
@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     @followers = User.find(params[:id]).followers(User)
     render json: @followers
   end
+
   private
 
   def user_params
