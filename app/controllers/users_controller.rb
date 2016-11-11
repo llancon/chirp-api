@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
       if @user
-        render json: @user 
+        render json: @user
       else
         render json: ["Wrong password bro"], status: :unauthorized
       end
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:email, :password, :username, :api_token, :id, :avatar_id)
+    params.permit(:email, :password, :username, :avatar)
   end
 
 end
