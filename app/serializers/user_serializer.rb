@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :username, :email, :created_at, :api_token, :avatar, :followers_count, :followees_count
+  attributes :username, :email, :created_at, :api_token, :followers_count, :followees_count
   has_many :followers
   has_many :posts
 
